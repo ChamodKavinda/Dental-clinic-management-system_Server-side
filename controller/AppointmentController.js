@@ -33,7 +33,11 @@ const getAppointment=(req,resp)=>{
 }
 
 const deleteAppointment=(req,resp)=>{
-
+    Appointment.deleteOne({id:req.headers.id}).then(result=>{
+        resp.status(200).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    })
 }
 
 module.exports={
