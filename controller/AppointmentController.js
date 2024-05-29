@@ -6,14 +6,21 @@ const saveAppointment=(req,resp)=>{
         name:req.body.name,
     })
     appointmentDto.save().then(result=>{
-        resp.status(200).json(result);
+        resp.status(201).json(result);
     }).catch(error=>{
         resp.status(500).json(error);
     })
 }
 
 const updateAppointment=(req,resp)=>{
-
+    Appointment.updateOne({id:req.body.id},{
+        id:req.body.id,
+        name:req.body.name
+    }).then(result=>{
+        resp.status(201).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    });
 }
 
 const getAppointment=(req,resp)=>{
