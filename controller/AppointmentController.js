@@ -25,6 +25,11 @@ const updateAppointment=(req,resp)=>{
 
 const getAppointment=(req,resp)=>{
 
+    Appointment.find().then(result=>{
+        resp.status(200).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    })
 }
 
 const deleteAppointment=(req,resp)=>{
