@@ -3,7 +3,10 @@ const Appointment = require('../model/AppointmentSchema');
 const saveAppointment=(req,resp)=>{
     const appointmentDto = new Appointment({
         id:req.body.id,
-        name:req.body.name,
+        patient:req.body.patient,
+        dentist:req.body.dentist,
+        date:req.body.date,
+        time:req.body.time,
     })
     appointmentDto.save().then(result=>{
         resp.status(201).json(result);
@@ -15,7 +18,10 @@ const saveAppointment=(req,resp)=>{
 const updateAppointment=(req,resp)=>{
     Appointment.updateOne({id:req.body.id},{
         id:req.body.id,
-        name:req.body.name
+        patient:req.body.patient,
+        dentist:req.body.dentist,
+        date:req.body.date,
+        time:req.body.time,
     }).then(result=>{
         resp.status(201).json(result);
     }).catch(error=>{
