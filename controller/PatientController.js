@@ -33,3 +33,11 @@ const updatePatient=(req,resp)=>{
         resp.status(500).json(error);
     })
 }
+
+const getAllPatient=(req,resp)=>{
+    Patient.find().then(result=>{
+        resp.status(200).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    })
+}
