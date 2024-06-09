@@ -51,3 +51,10 @@ const deletePatient=(req,resp)=>{
         resp.status(200).json(error);
     })
 }
+
+module.exports={
+    savePatient,
+    updatePatient,
+    getAllPatient,
+    deletePatient
+}
