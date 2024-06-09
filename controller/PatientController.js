@@ -41,3 +41,13 @@ const getAllPatient=(req,resp)=>{
         resp.status(500).json(error);
     })
 }
+
+const deletePatient=(req,resp)=>{
+    const userId=req.body.id;
+    Patient.deleteOne({id:userId})
+        .then(result=>{
+            resp.status(200).json(result);
+    }).catch(error=>{
+        resp.status(200).json(error);
+    })
+}
