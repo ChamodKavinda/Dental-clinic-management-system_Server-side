@@ -54,3 +54,10 @@ const deleteDentist=(req,resp)=>{
         resp.status(500).json(error);
     })
 }
+
+module.exports={
+    saveDentist,
+    getAllDentist,
+    updateDentist,
+    deleteDentist
+}
