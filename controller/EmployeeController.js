@@ -34,3 +34,13 @@ const updateEmployee=(req,resp)=>{
         resp.status(500).json(error);
     })
 }
+
+const deleteEmployee=(req,resp)=>{
+    const userId=req.body.id
+    Employee.deleteOne({id:userId})
+    .then(result=>{
+        resp.status(200).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    })
+}
