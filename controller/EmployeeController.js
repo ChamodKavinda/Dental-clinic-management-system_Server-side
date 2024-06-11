@@ -18,3 +18,19 @@ const saveEmployee=(req,resp)=>{
         resp.status(500).json(error);
     })
 }
+
+const updateEmployee=(req,resp)=>{
+    Employee.updateOne({id:req.body.id},{
+        name:req.body.name,
+        age:req.body.age,
+        number:req.body.number,
+        sex:req.body.sex,
+        address:req.body.address,
+        description:req.body.description,
+    })
+    .then(result=>{
+        resp.status(200).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    })
+}
