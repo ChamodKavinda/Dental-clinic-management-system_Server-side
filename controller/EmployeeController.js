@@ -1,0 +1,20 @@
+const Employee = require('../model/EmployeeSchema');
+
+const saveEmployee=(req,resp)=>{
+    const employeeDTO = new Employee({
+        id:req.body.id,
+        name:req.body.name,
+        age:req.body.age,
+        number:req.body.number,
+        sex:req.body.sex,
+        address:req.body.address,
+        description:req.body.description,
+    })
+
+    employeeDTO.save()
+    .then(result=>{
+        resp.status(201).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    })
+}
