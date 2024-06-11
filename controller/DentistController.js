@@ -19,3 +19,12 @@ const saveDentist=(req,resp)=>{
             resp.status(500).json(error);
     });
 }
+
+const getAllDentist=(req,resp)=>{
+    Dentist.find()
+        .then(result=>{
+            resp.status(201).json(result);
+        }).catch(error=>{
+            resp.status(500).json(error);
+    })
+}
