@@ -10,4 +10,4 @@ const employeeDTO = new mongoose.Schema({
     description:{type:String,require:true},
 });
 
-module.exports=mongoose.model('dentist',employeeDTO);
+module.exports=mongoose.model('employee',employeeDTO);
