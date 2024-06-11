@@ -29,7 +29,7 @@ const updateEmployee=(req,resp)=>{
         description:req.body.description,
     })
     .then(result=>{
-        resp.status(200).json(result);
+        resp.status(201).json(result);
     }).catch(error=>{
         resp.status(500).json(error);
     })
@@ -38,6 +38,15 @@ const updateEmployee=(req,resp)=>{
 const deleteEmployee=(req,resp)=>{
     const userId=req.body.id
     Employee.deleteOne({id:userId})
+    .then(result=>{
+        resp.status(200).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
+    })
+}
+
+const getAllEmployee=(req,resp)=>{
+    Employee.find()
     .then(result=>{
         resp.status(200).json(result);
     }).catch(error=>{
