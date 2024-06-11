@@ -23,8 +23,24 @@ const saveDentist=(req,resp)=>{
 const getAllDentist=(req,resp)=>{
     Dentist.find()
         .then(result=>{
-            resp.status(201).json(result);
+            resp.status(200).json(result);
         }).catch(error=>{
             resp.status(500).json(error);
+    })
+}
+
+const updateDentist=(req,resp)=>{
+    Dentist.updateOne({id:req.body.id},{
+        id:req.body.id,
+        name:req.body.name,
+        age:req.body.age,
+        number:req.body.number,
+        sex:req.body.sex,
+        address:req.body.address,
+        description:req.body.description
+    }).then(result=>{
+        resp.status(201).json(result);
+    }).catch(error=>{
+        resp.status(500).json(error);
     })
 }
