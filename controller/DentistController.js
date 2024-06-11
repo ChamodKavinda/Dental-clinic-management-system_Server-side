@@ -44,3 +44,13 @@ const updateDentist=(req,resp)=>{
         resp.status(500).json(error);
     })
 }
+
+const deleteDentist=(req,resp)=>{
+    const userId=req.body.id
+    Dentist.deleteOne({id:userId})
+        .then(result=>{
+            resp.status(201).json(result);
+        }).catch(error=>{
+        resp.status(500).json(error);
+    })
+}
