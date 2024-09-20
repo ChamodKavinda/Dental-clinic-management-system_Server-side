@@ -1,4 +1,4 @@
-const Patient = require('/model/PatientSchema');
+const Patient = require('../model/PatientSchema');
 
 const savePatient=(req,resp)=>{
     const patientDto = new Patient({
@@ -43,12 +43,22 @@ const getAllPatient=(req,resp)=>{
 }
 
 const deletePatient=(req,resp)=>{
-    const userId=req.body.id;
+    const userId=req.body.userId;
     Patient.deleteOne({id:userId})
         .then(result=>{
             resp.status(200).json(result);
     }).catch(error=>{
-        resp.status(200).json(error);
+        resp.status(500).json(error);
+    })
+}
+
+const lastPatient=(req,resp)=>{
+
+    Patient.find().sort({ _id: -1 }).limit(1)
+        .then(result=>{
+            resp.status(200).json(result);
+        }).catch(error=>{
+        resp.status(500).json(error);
     })
 }
 
@@ -56,5 +66,6 @@ module.exports={
     savePatient,
     updatePatient,
     getAllPatient,
-    deletePatient
+    deletePatient,
+    lastPatient
 }
