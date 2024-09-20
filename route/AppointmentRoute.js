@@ -5,6 +5,7 @@ const mailController = require('../mailController');
 
 router.post('/save', appointmentController.saveAppointment);
 router.get('/get', appointmentController.getAppointment);
+router.get('/last', appointmentController.lastAppointment);
 router.put('/update', appointmentController.updateAppointment);
 router.delete('/delete', appointmentController.deleteAppointment);
 
