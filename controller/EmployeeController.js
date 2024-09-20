@@ -54,9 +54,20 @@ const getAllEmployee=(req,resp)=>{
     })
 }
 
+const lastEmployee=(req,resp)=>{
+
+    Employee.find().sort({ _id: -1 }).limit(1)
+        .then(result=>{
+            resp.status(200).json(result);
+        }).catch(error=>{
+        resp.status(500).json(error);
+    })
+}
+
 module.exports={
     saveEmployee,
     deleteEmployee,
     getAllEmployee,
-    updateEmployee
+    updateEmployee,
+    lastEmployee
 }
