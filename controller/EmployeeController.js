@@ -36,7 +36,7 @@ const updateEmployee=(req,resp)=>{
 }
 
 const deleteEmployee=(req,resp)=>{
-    const userId=req.body.id
+    const userId=req.body.userId;
     Employee.deleteOne({id:userId})
     .then(result=>{
         resp.status(200).json(result);
@@ -52,4 +52,11 @@ const getAllEmployee=(req,resp)=>{
     }).catch(error=>{
         resp.status(500).json(error);
     })
+}
+
+module.exports={
+    saveEmployee,
+    deleteEmployee,
+    getAllEmployee,
+    updateEmployee
 }
