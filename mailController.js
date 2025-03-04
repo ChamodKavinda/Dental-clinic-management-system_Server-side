@@ -10,7 +10,7 @@ const emailSender = (req,resp)=> {
     });
 
     var mailOptions = {
-        from: 'kaduwalihini@gmail.com',
+        from: 'dentalcarepro0@gmail.com',
         to: req.body.email,
         subject: req.body.subject,
         text: req.body.message

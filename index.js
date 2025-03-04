@@ -14,9 +14,9 @@ const app = express();
 
 
 app.use(cors({
-    origin: "http://localhost:5173", // Allow requests from the frontend
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true // Allow credentials (cookies, authorization headers, etc.)
+    credentials: true
 }));
 
 app.use(cookieParser());

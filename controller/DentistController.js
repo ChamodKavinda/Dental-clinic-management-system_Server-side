@@ -13,7 +13,6 @@ const saveDentist=(req,resp)=>{
 
     dentistDTO.save()
         .then(result=>{
-            console.log(dentistDTO);
             resp.status(201).json(result);
         }).catch(error=>{
             resp.status(500).json(error);
